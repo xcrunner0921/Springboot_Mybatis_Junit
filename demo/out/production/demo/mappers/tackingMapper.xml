@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ITrackingMapper">
+    <insert id="createTracking" parameterType="TrackingEntity">
+        INSERT INTO tracking (
+        session_id
+        , method
+        , uri
+        , remote_addr
+        , remote_host
+        , process
+        , command_id
+        , simulator_type
+        , created_time
+        )
+        VALUES (
+        #{sessionId}
+        , #{method}
+        , #{uri}
+        , #{remoteAddr}
+        , #{remoteHost}
+        , #{process}
+        , #{commandId}
+        , #{simulatorType}
+        , now()
+        )
+    </insert>
+
+    <select id="retrieveTracking" parameterType="TrackingEntity" resultType="TrackingEntity">
+        SELECT * FROM tracking
+    </select>
+
+    <insert id="save" parameterType="TrackingEntity">
+        INSERT INTO tracking (
+        session_id
+        , method
+        , uri
+        , remote_addr
+        , remote_host
+        , process
+        , command_id
+        , simulator_type
+        , created_time
+        )
+        VALUES (
+        #{sessionId}
+        , #{method}
+        , #{uri}
+        , #{remoteAddr}
+        , #{remoteHost}
+        , #{process}
+        , #{commandId}
+        , #{simulatorType}
+        , now()
+        )
+    </insert>
+</mapper>
